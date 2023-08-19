@@ -1,0 +1,7 @@
+name: Clamp
+description: A Minecraft punishment plugin.
+main: io.github.superorca.clamp.Clamp
+version: '${project.version}'
+api-version: '1.20'
+author: SuperOrca
+website: https://superorca.github.io/
