@@ -24,10 +24,10 @@ public class StaffChatCommand {
         if (message == null) {
             if (plugin.getStaffChat().contains(player.getUniqueId())) {
                 plugin.getStaffChat().remove(player.getUniqueId());
-                player.sendMessage(component("<yellow>[S] <gray>Staff chat is <red>disabled."));
+                player.sendMessage(component("<yellow>[S] <gray>Staff chat is <red>disabled<gray>."));
             } else {
                 plugin.getStaffChat().add(player.getUniqueId());
-                player.sendMessage(component("<yellow>[S] <gray>Staff chat is <green>enabled."));
+                player.sendMessage(component("<yellow>[S] <gray>Staff chat is <green>enabled<gray>."));
             }
         } else {
             Bukkit.broadcast(component("<yellow>[S] <gray>%s <dark_gray>⏵ <white>%s".formatted(player.getName(), message)), "clamp.staff");

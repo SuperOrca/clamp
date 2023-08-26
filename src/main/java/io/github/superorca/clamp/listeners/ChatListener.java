@@ -9,10 +9,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import java.util.Optional;
 
 import static io.github.superorca.clamp.lib.Utils.component;
+import static net.kyori.adventure.text.Component.empty;
 
 public class ChatListener implements Listener {
     private final Clamp plugin;
@@ -22,7 +24,8 @@ public class ChatListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
-    public void chat(AsyncChatEvent e) {
+    @SuppressWarnings("deprecation")
+    public void chat(AsyncPlayerChatEvent e) {
         Player player = e.getPlayer();
 
         Optional<Punishment> optional = Punishment.fromTarget(plugin, player.getUniqueId()).stream().filter(punishment -> punishment.getType() == PunishmentType.MUTE && punishment.isActive()).findFirst();
@@ -48,7 +51,7 @@ public class ChatListener implements Listener {
                 plugin.getStaffChat().remove(player.getUniqueId());
             } else {
                 e.setCancelled(true);
-                Bukkit.broadcast(component("<yellow>[S] <gray>%s <dark_gray>⏵ <white>%s".formatted(player.getName(), e.message())), "clamp.staff");
+                Bukkit.broadcast(component("<yellow>[S] <gray>%s <dark_gray>⏵ <white>%s".formatted(player.getName(), e.getMessage())), "clamp.staff");
                 return;
             }
         }

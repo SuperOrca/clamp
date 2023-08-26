@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="clamp:jar">
-    <output-path>$PROJECT_DIR$/../Confect/plugins</output-path>
+    <output-path>$PROJECT_DIR$/../AmberPR/plugins</output-path>
     <root id="archive" name="clamp.jar">
       <element id="module-output" name="clamp" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/Revxrsal/Lamp/common/3.1.5/common-3.1.5.jar" path-in-jar="/" />
